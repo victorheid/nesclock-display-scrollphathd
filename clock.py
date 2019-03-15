@@ -15,31 +15,25 @@ Press Ctrl+C to exit!
 
 """)
 
-# Display a progress bar for seconds
-# Displays a dot if False
-DISPLAY_BAR = False
-
-# Brightness of the seconds bar and text
-BRIGHTNESS = 0.5
+BRIGHTNESS = 0.9
 
 # Uncomment the below if your display is upside down
 #   (e.g. if you're using it in a Pimoroni Scroll Bot)
-scrollphathd.rotate(degrees=180)
+# scrollphathd.rotate(degrees=180)
 
 while True:
     scrollphathd.clear()
-
-#    scrollphathd.set_pixel(y + 1, 6, current_pixel * BRIGHTNESS)
 
     # Display the time (HH:MM) in a 5x5 pixel font
     scrollphathd.write_string(
         time.strftime("%H:%M"),
         x=0, # Align to the left of the buffer
         y=0, # Align to the top of the buffer
-        font=font3x7, # Use the font5x5 font we imported above
+        font=font3x7, # Use the font font we imported above
         brightness=BRIGHTNESS # Use our global brightness value
     )
 
+    # The dots (:) to blink in between seconds
     scrollphathd.set_pixel(8, 2, BRIGHTNESS)
     scrollphathd.set_pixel(8, 4, BRIGHTNESS)
 
